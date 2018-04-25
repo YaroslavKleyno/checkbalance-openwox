@@ -8,7 +8,7 @@ card_status=`echo $card_bal_full | head -c 1`
 card_bal_min=`echo $card_bal_full | cut -d';' -f4 | awk -F ':' '{print $1}'`
 
 if [ "$card_status" == "0" ]; then
-	echo "Ошибка USSD, SIM:$SIM_ID $(date)" >> /tmp/balcontrol.log
+	echo "Ошибка USSD, SIM:$SIM_ID $(date)" >> /tmp/web/www/balcontrol.html
 	else
 	if [ "$card_bal_min" -lt 5 ]; then
 	echo "Баланс SIM-карты #:$SIM_ID меньше 5 минут, отключаем ТРАНК #:$TRUNK_ID $(date)" >> /tmp/web/www/balcontrol.html
